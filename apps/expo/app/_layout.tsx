@@ -1,3 +1,4 @@
+import { Lato_400Regular, Lato_700Bold, Lato_900Black } from '@expo-google-fonts/lato'
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native'
 import { Provider } from 'app/provider'
 import { useFonts } from 'expo-font'
@@ -8,6 +9,9 @@ export default function HomeLayout() {
   const [loaded] = useFonts({
     Inter: require('@tamagui/font-inter/otf/Inter-Medium.otf'),
     InterBold: require('@tamagui/font-inter/otf/Inter-Bold.otf'),
+    Lato: Lato_400Regular,
+    LatoBold: Lato_700Bold,
+    LatoBlack: Lato_900Black,
   })
   const scheme = useColorScheme()
 

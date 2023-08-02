@@ -1,11 +1,43 @@
-import { createTamagui } from 'tamagui'
 import { createInterFont } from '@tamagui/font-inter'
+import { createMedia } from '@tamagui/react-native-media-driver'
 import { shorthands } from '@tamagui/shorthands'
 import { themes, tokens } from '@tamagui/themes'
-import { createMedia } from '@tamagui/react-native-media-driver'
+import { createFont, createTamagui } from 'tamagui'
 
 import { animations } from './animations'
 
+const heading = createFont({
+  size: {
+    6: 15,
+  },
+  transform: {
+    6: 'uppercase',
+    7: 'none',
+  },
+  weight: {
+    6: '400',
+    7: '700',
+  },
+  color: {
+    6: '$colorFocus',
+    7: '$color',
+  },
+  letterSpacing: {
+    5: 2,
+    6: 1,
+    7: 0,
+    8: -1,
+    9: -2,
+    10: -3,
+    12: -4,
+    14: -5,
+    15: -6,
+  },
+  face: {
+    700: { normal: 'LatoBold' },
+    900: { normal: 'LatoBlack' },
+  },
+})
 const headingFont = createInterFont({
   size: {
     6: 15,
@@ -38,6 +70,42 @@ const headingFont = createInterFont({
   },
 })
 
+const body = createFont({
+  size: {
+    6: 15,
+    7: 18,
+    10: 32,
+  },
+  transform: {
+    6: 'uppercase',
+    7: 'none',
+  },
+  weight: {
+    6: '400',
+    7: '700',
+  },
+  color: {
+    6: '$colorFocus',
+    7: '$color',
+  },
+  letterSpacing: {
+    5: 2,
+    6: 1,
+    7: 0,
+    8: -1,
+    9: -2,
+    10: -3,
+    12: -4,
+    14: -5,
+    15: -6,
+  },
+  face: {
+    400: { normal: 'Lato' },
+    700: { normal: 'LatoBold' },
+    900: { normal: 'LatoBlack' },
+  },
+})
+
 const bodyFont = createInterFont(
   {
     face: {
@@ -57,8 +125,8 @@ export const config = createTamagui({
   themeClassNameOnRoot: true,
   shorthands,
   fonts: {
-    body: bodyFont,
-    heading: headingFont,
+    body: body,
+    heading: heading,
   },
   themes,
   tokens,
