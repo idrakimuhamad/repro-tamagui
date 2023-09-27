@@ -1,5 +1,5 @@
-import { FC } from "react"
-import { ScrollViewProps, useWindowDimensions } from "react-native"
+import { FC } from 'react'
+import { ScrollViewProps, useWindowDimensions } from 'react-native'
 import Reanimated, {
   MeasuredDimensions,
   interpolate,
@@ -10,8 +10,8 @@ import Reanimated, {
   useAnimatedStyle,
   useSharedValue,
   useWorkletCallback,
-} from "react-native-reanimated"
-import { useSmoothKeyboardHandler } from "./useSmoothKeyboardHandler"
+} from 'react-native-reanimated'
+import { useSmoothKeyboardHandler } from './useSmoothKeyboardHandler'
 
 /**
  * Everything begins from `onStart` handler. This handler is called every time,
@@ -100,8 +100,7 @@ const KeyboardAwareScrollView: FC<KeyboardAwareScrollViewProps> = ({
         [initialKeyboardSize.value, keyboardHeight.value],
         [0, keyboardHeight.value - (height - point) + bottomOffset]
       )
-      const targetScrollY =
-        Math.max(interpolatedScrollTo, 0) + scrollPosition.value
+      const targetScrollY = Math.max(interpolatedScrollTo, 0) + scrollPosition.value
       scrollTo(scrollViewAnimatedRef, 0, targetScrollY, animated as boolean)
     }
   }, [])
@@ -109,10 +108,9 @@ const KeyboardAwareScrollView: FC<KeyboardAwareScrollViewProps> = ({
   useSmoothKeyboardHandler(
     {
       onStart: (e) => {
-        "worklet"
+        'worklet'
 
-        const keyboardWillChangeSize =
-          keyboardHeight.value !== e.height && e.height > 0
+        const keyboardWillChangeSize = keyboardHeight.value !== e.height && e.height > 0
         const keyboardWillAppear = e.height > 0 && keyboardHeight.value === 0
         const keyboardWillHide = e.height === 0
         if (keyboardWillChangeSize) {
@@ -147,12 +145,12 @@ const KeyboardAwareScrollView: FC<KeyboardAwareScrollViewProps> = ({
         }
       },
       onMove: (e) => {
-        "worklet"
+        'worklet'
 
         maybeScroll(e.height)
       },
       onEnd: (e) => {
-        "worklet"
+        'worklet'
 
         keyboardHeight.value = e.height
         scrollPosition.value = position.value
@@ -187,7 +185,7 @@ const KeyboardAwareScrollView: FC<KeyboardAwareScrollViewProps> = ({
       collapsable={false}
     >
       {children}
-      <Reanimated.View style={view} />
+      <Reanimated.View style={view} collapsable={false} />
     </Reanimated.ScrollView>
   )
 }

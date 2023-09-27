@@ -34,7 +34,7 @@ export function KeyboardAwareView({
 
   // const viewStyle = {}
 
-  return <AnimatedBox {...props} style={[props.style, viewStyle]} />
+  return <AnimatedBox {...props} style={[props.style, viewStyle]} collapsable={false} />
 }
 
 export { KeyboardProvider }

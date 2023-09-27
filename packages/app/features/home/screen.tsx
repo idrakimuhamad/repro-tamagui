@@ -14,12 +14,15 @@ export function HomeScreen() {
         contentContainerStyle={{
           flexGrow: 1,
         }}
+        collapsable={false}
       >
-        <YStack f={1} jc="center" ai="center" p="$4" space>
-          <Button {...linkProps}>Go to bug screen</Button>
+        <YStack collapsable={false} f={1} jc="center" ai="center" p="$4" space>
+          <Button {...linkProps} collapsable={false}>
+            Go to bug screen
+          </Button>
         </YStack>
-        <YStack p="$4">
-          <Input placeholder="Placeholder" />
+        <YStack collapsable={false} p="$4">
+          <Input placeholder="Placeholder" collapsable={false} />
         </YStack>
       </KeyboardAwareScrollView>
     </YStack>

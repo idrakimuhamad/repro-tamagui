@@ -1,10 +1,5 @@
 import { Input, ScrollView, XStack, YStack } from '@my/ui'
-import { KeyboardAwareView } from 'app/components/keyboard-aware-view'
 import React from 'react'
-import { KeyboardAvoidingViewProps } from 'react-native'
-
-type Behavior = KeyboardAvoidingViewProps['behavior']
-const behaviors: Behavior[] = ['padding', 'height', 'position']
 
 export function KeyboardScreen() {
   return (
@@ -13,8 +8,9 @@ export function KeyboardScreen() {
         contentContainerStyle={{
           flexGrow: 1,
         }}
+        collapsable={false}
       >
-        <YStack f={1} gap="$4">
+        <YStack f={1} gap="$4" collapsable={false}>
           <XStack h={100} bg="green" />
           <XStack h={100} bg="green" />
           <XStack h={100} bg="green" />
@@ -24,11 +20,11 @@ export function KeyboardScreen() {
           <XStack h={100} bg="green" />
         </YStack>
       </ScrollView>
-      <KeyboardAwareView>
-        <YStack p="$4" bg="$background">
-          <Input placeholder="Placeholder" />
-        </YStack>
-      </KeyboardAwareView>
+      {/* <KeyboardAwareView collapsable={false}> */}
+      <YStack collapsable={false} p="$4" bg="$background">
+        <Input placeholder="Placeholder" collapsable={false} />
+      </YStack>
+      {/* </KeyboardAwareView> */}
     </YStack>
   )
 }
