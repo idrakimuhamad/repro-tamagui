@@ -30,6 +30,12 @@ module.exports = function (api) {
             ],
           ]),
       'transform-inline-environment-variables',
+      [
+        "react-native-reanimated/plugin",
+        {
+          relativeSourceLocation: true,
+        },
+      ],
     ],
   };
 };

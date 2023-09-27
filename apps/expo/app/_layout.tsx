@@ -4,6 +4,7 @@ import { Provider } from 'app/provider'
 import { useFonts } from 'expo-font'
 import { Stack } from 'expo-router'
 import { useColorScheme } from 'react-native'
+import { KeyboardProvider } from 'react-native-keyboard-controller'
 
 export default function HomeLayout() {
   const [loaded] = useFonts({
@@ -19,10 +20,12 @@ export default function HomeLayout() {
     return null
   }
   return (
-    <Provider>
-      <ThemeProvider value={scheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <Stack />
-      </ThemeProvider>
-    </Provider>
+    <KeyboardProvider statusBarTranslucent>
+      <Provider>
+        <ThemeProvider value={scheme === 'dark' ? DarkTheme : DefaultTheme}>
+          <Stack />
+        </ThemeProvider>
+      </Provider>
+    </KeyboardProvider>
   )
 }
